@@ -22,6 +22,13 @@ public class ScoresAction extends ActionSupport {
  @Autowired
  private ScoresService scoresService;
  private Scores scores;
+ private String result;
+public String getResult() {
+	return result;
+}
+public void setResult(String result) {
+	this.result = result;
+}
 public Scores getScores() {
 	return scores;
 }
@@ -32,8 +39,16 @@ public String addComments() throws IOException{
 	HttpServletRequest request=ServletActionContext.getRequest();
 	request.setCharacterEncoding("UTF-8");
 	scores.setDate(new Timestamp(0));
+	scores.setScore(scores.getScore()*2);
 	System.out.println(scores.getMoviename());
 	this.scoresService.addComment(this.scores);
 	return SUCCESS;
+}
+public String findComments() throws IOException{
+	 HttpServletRequest request=ServletActionContext.getRequest();
+	 request.setCharacterEncoding("UTF-8");
+	 List<Scores>list=this.scoresService.findComments(this.scores.getMoviename());
+	 result=list.toString();
+	 return SUCCESS;
 }
 }

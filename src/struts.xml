@@ -45,6 +45,12 @@
  	     <param name="root">result</param>
        </result>
     </action>
+    
+    <action name="findcomments" class="com.ycj.web.ScoresAction" method="findComments">
+ 	   <result name="success" type="json">
+ 	     <param name="root">result</param>
+       </result>
+    </action>
 		
 	<action name="selectmovie" class="com.ycj.web.MovieAction" method="selectMovie">
 		<result name="success">/moviedetail.jsp</result>
