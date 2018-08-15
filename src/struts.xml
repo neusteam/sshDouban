@@ -78,7 +78,7 @@
 	</action>
 	
 	<action name="addcomments" class="com.ycj.web.ScoresAction" method="addComments">
-		<result name="success">/moviedetail.jsp</result>
+		<result name="success">/commentscheck.jsp</result>
 		<result name="fail">/findbykey.jsp</result>
 	</action>
 </package>

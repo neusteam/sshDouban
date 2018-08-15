@@ -151,7 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             		<option value="5">5</option>
             	</select>
                 <textarea name="scores.comments" id="comment-textarea" cols="30" rows="10"></textarea>
-                <input type="hidden" name="scores.moviename" value="${moviename}">
+                <input id="input-moviename" type="hidden" name="scores.moviename" value="${moviename}">
                 <input id="input-username" type="hidden" name="scores.username" value="${username}">
                 <input type="submit" class="comment-button">
             </form>
