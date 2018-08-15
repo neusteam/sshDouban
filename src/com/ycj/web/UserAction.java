@@ -86,6 +86,15 @@ public class UserAction extends ActionSupport{
 	  }
 
   }
+  
+  public String userLogout(){
+		HttpServletResponse response=ServletActionContext.getResponse();
+		Cookie cookie=new Cookie("username",null);
+		cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+		return SUCCESS;
+  }
   public String adminLogin(){
 	  List<Users> list=this.userService.findUser(this.user.getUsername());
 		 

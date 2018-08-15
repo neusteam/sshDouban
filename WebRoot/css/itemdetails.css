@@ -127,8 +127,9 @@ textarea#comment-textarea:focus
 }
 .comment-button
 {
-    width: 60px;
-    height: 36px;
+    width: 120px;
+    height: 24px;
+    
     cursor: pointer;
     color: #fff;
     border: 1px solid rgba(0, 0, 0, .1);
@@ -136,4 +137,5 @@ textarea#comment-textarea:focus
     background-color: #3fa156;
 
     margin-top: 20px;
+    margin-bottom:50px;
 }

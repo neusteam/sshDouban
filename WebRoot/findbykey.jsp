@@ -16,6 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/result.css">
     <title>${moviename}</title>
+    <script src="./js/util.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -100,6 +102,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <%
 	ArrayList<Movieinfo> list = (ArrayList)request.getAttribute("list");
+	if(list != null && list.size()>0){
+	System.out.println(list.size());
     for(int i=0;i<list.size();i++){
 %>
     
@@ -114,12 +118,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p>评分 ： <span class="score"><%=list.get(i).getAverage() %>分</span>
                     <p class="actor mockp">演员 ：<%=list.get(i).getActor() %></p>
                 </div>
-                </a>
             </div>
 
 <% 
-    }
- %>
+		}
+	}else{
+%>
+				<div style="min-height: 200px;"><h3>无搜索结果</h3></div>
+<%
+	}
+%>
 
                 <div class="common-footer" style="float: left;">
                     <span class="fleft span-footer">© 5002－8102 fakedouban.com, all rights reserved</span>
@@ -138,6 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
+    <script src="./js/searchresult.js"></script>	
 </body>
 
 </html>
