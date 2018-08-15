@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,7 +17,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    
   <form action="updateuser">
    账号:<input name="user.username"  type="text"><br>
-   密码:<input name="user.password"  type="password"><br>
+   密码:<input name="user.sex"  type="password"><br>
+   电话：  <input name="user.phonenumber"  type="text"><br>
+   邮箱：  <input name="user.email"  type="text"><br>
+   城市：  <input name="user.city"  type="text"><br>
+   生日：   <input name="user.birth"  type="text"><br>
   <input type="submit"  value="注册">
    </form>
    <a href="findAll">查所有用户</a>

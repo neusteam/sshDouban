@@ -1,4 +1,4 @@
-<%@page import="org.infinispan.util.SysPropertyActions"%>
+﻿<%@page import="org.infinispan.util.SysPropertyActions"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </a>
                 </div>
                 <div class="search-input-banner">
-                    <form action="">
+                    <form action="./findbykey">
                         <input name="keyWord" type="text" class="search-input" placeholder="搜索电影、电视剧、综艺、影人">
                         <input type="submit" class="search-input-submit" value="搜索">
                     </form>
@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p>地区 ： ${country}</p>
                     <p>语言 ： ${language}</p>
                     <p>评分 ： <span class="score">${score}分</span></p>
-                    <div class="director mockp">导演 ： <a href="selectmovie?movieInfo.moviename=${director}">${director}</a></div>
+                    <div class="director mockp">导演 ：<a href="selectmovie?movieInfo.moviename=${director}"> ${director}</a></div>
                     <div class="actor mockp">演员 ：     
                     <s:iterator value="#request.ac" status="st">
                         <s:iterator value="#request.ac[#st.index]">
@@ -143,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form action="" style="float: left;">
                 <textarea name="content" id="comment-textarea" cols="30" rows="10"></textarea>
                 <input type="hidden" name="moviename" value="${moviename}">
-                <input type="hidden" name="usernmae" value="${username}">
+                <input type="hidden" name="username" value="${username}">
                 <input type="submit" class="comment-button">
             </form>
             </div>

@@ -97,69 +97,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="movie-info-banner">
 
-
-
-
-
-
-            <div class="movie-info-small">
+<%
+	ArrayList<Movieinfo> list = (ArrayList)request.getAttribute("list");
+    for(int i=0;i<list.size();i++){
+ %>
+    
+    		<div class="movie-info-small">
                 <div class="content">
-                    <h1>${moviename} ${type}</h1>
-                    <img src="./image/zhan.png" alt="">
-                    <p>类型 ： ${type}</p>
-                    <p>日期 ： ${date}</p>
-                    <p>地区 ： ${country}</p>
-                    <p>语言 ： ${language}</p>
-                    <p>评分 ： <span class="score">${score}分</span>
-                    <p class="actor mockp">演员 ：     
-                    <s:iterator value="#request.ac" status="st">
-                        <s:iterator value="#request.ac[#st.index]">
-                            <a href="selectactor?actorInfo.actorname=<s:property/>">
-                                <s:property/>
-                            </a>
-                        </s:iterator>/
-                    </s:iterator>
-                    </p>
+                    <a href="./selectmovie?movieInfo.moviename=<%=list.get(i).getMoviename() %>"><h1><%=list.get(i).getMoviename() %> <%=list.get(i).getType() %></h1></a>
+                    <img src="<%=list.get(i).getPicture() %>" alt="">
+                    <p>类型 ： <%=list.get(i).getType() %></p>
+                    <p>日期 ： <%=list.get(i).getDate() %></p>
+                    <p>地区 ： <%=list.get(i).getCountry() %></p>
+                    <p>语言 ： <%=list.get(i).getLanguage() %></p>
+                    <p>评分 ： <span class="score"><%=list.get(i).getAverage() %>分</span>
+                    <p class="actor mockp">演员 ：<%=list.get(i).getActor() %></p>
                 </div>
             </div>
+
+<% 
+    }
+ %>
+
+
  
 
 
             </div>
         </div>
     </div>
-<!-- 
-  姓名:${actorname}<br>
-  性别:${sex}<br>
-  出生日期:${birth}<br>
-  出生地:${hometown}<br>
-  职业:${occupation}<br>
-  影人简介:${describe} <br>
-  <img alt="" src="${picture}"> -->
-
 </body>
 
 </html>
 
-
-
-<!--     <%
-   
-    ArrayList<Movieinfo> list = (ArrayList)request.getAttribute("list");
-    for(int i=0;i<list.size();i++){
-    
-    %>
-    <%=list.get(i).getMoviename() %>/
-    <%=list.get(i).getDate() %><br>
-    <%=list.get(i).getAverage() %><br>
-    <%=list.get(i).getCountry() %>/
-     <%=list.get(i).getType() %><br>
-    <%=list.get(i).getDirector() %>/
-    <%=list.get(i).getActor() %><br>
-  
-    <img alt="" src="<%=list.get(i).getPicture() %>"><br>
-    
-    <% 
-    }
-    %>
- -->

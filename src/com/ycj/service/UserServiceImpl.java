@@ -30,4 +30,8 @@ public class UserServiceImpl implements UserService {
     	this.usersDao.merge(user);
     	return 0;
     }
+    public List<Users> userInfo(String username){
+    	return this.usersDao.findByUsername(username);
+    }
+
 }
