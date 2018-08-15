@@ -1,0 +1,32 @@
+.movie-info-banner
+{
+	width: 1160px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.movie-info-small
+{
+width: 900px;
+float: left;	
+}
+.movie-info-small img
+{
+	width: 80px;
+	height: 118px;
+	float: left;
+}
+.movie-info-small p
+{
+	width: 635px;
+	padding-left: 10px;
+	float: left;
+	height: 16px;
+	list-style: 16px;
+	margin: 2px 0;
+}
+.movie-info-small
+{
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	margin-top: 20px;
+}
