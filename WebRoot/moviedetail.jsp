@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p>地区 ： ${country}</p>
                     <p>语言 ： ${language}</p>
                     <p>评分 ： <span class="score">${score}分</span></p>
-                    <div class="director mockp">导演 ： <a href="selectmovie?movieInfo.moviename=${director}">${director}</a></div>
+                    <div class="director mockp">导演 ：<a href="selectmovie?movieInfo.moviename=${director}"> ${director}</a></div>
                     <div class="actor mockp">演员 ：     
                     <s:iterator value="#request.ac" status="st">
                         <s:iterator value="#request.ac[#st.index]">
@@ -143,11 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form action="" style="float: left;">
                 <textarea name="content" id="comment-textarea" cols="30" rows="10"></textarea>
                 <input type="hidden" name="moviename" value="${moviename}">
-<<<<<<< HEAD
                 <input type="hidden" name="username" value="${username}">
-=======
-                <input type="hidden" name="usernmae" value="${username}">
->>>>>>> 92ced7572584378a680bb49e0a24ebf2696611a2
                 <input type="submit" class="comment-button">
             </form>
             </div>
