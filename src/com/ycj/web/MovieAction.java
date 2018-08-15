@@ -62,7 +62,6 @@ public class MovieAction extends ActionSupport{
 	 //System.out.println(this.movieInfo.getMoviename());
 	  String mn=movieInfo.getMoviename();
 	  List <Movieinfo> list =this.movieService.selectMovie(mn);
-	  System.out.println(list.toString());
 	  ServletActionContext.getRequest().setAttribute("moviename",list.get(0).getMoviename());
 	  ServletActionContext.getRequest().setAttribute("director",list.get(0).getDirector());
 	  ServletActionContext.getRequest().setAttribute("type",list.get(0).getType());
