@@ -142,17 +142,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             <div class="label edit-label"><i class="iconfont" style="font-size: 16px;line-height: 16px;">&#xeabf;</i> 添加评论</div>
 
-            <form action="" style="float: left;">
-            	<span class="score">评分</span><select id="score-select" name="score" style="width:80px;margin:0 0 20px 10px;">
+            <form action="./addcomments" style="float: left;" method="post">
+            	<span class="score">评分</span><select id="score-select" name="scores.score" style="width:80px;margin:0 0 20px 10px;">
 					<option value="1">1</option>
             		<option value="2">2</option>
             		<option value="3">3</option>
             		<option value="4">4</option>
             		<option value="5">5</option>
             	</select>
-                <textarea name="content" id="comment-textarea" cols="30" rows="10"></textarea>
-                <input type="hidden" name="moviename" value="${moviename}">
-                <input id="input-username" type="hidden" name="username" value="${username}">
+                <textarea name="scores.comments" id="comment-textarea" cols="30" rows="10"></textarea>
+                <input type="hidden" name="scores.moviename" value="${moviename}">
+                <input id="input-username" type="hidden" name="scores.username" value="${username}">
                 <input type="submit" class="comment-button">
             </form>
             </div>

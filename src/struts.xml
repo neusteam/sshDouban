@@ -45,6 +45,12 @@
  	     <param name="root">result</param>
        </result>
     </action>
+    
+    <action name="findcomments" class="com.ycj.web.ScoresAction" method="findComments">
+ 	   <result name="success" type="json">
+ 	     <param name="root">result</param>
+       </result>
+    </action>
 		
 	<action name="selectmovie" class="com.ycj.web.MovieAction" method="selectMovie">
 		<result name="success">/moviedetail.jsp</result>
@@ -71,7 +77,10 @@
 		<result name="fail">/findbykey.jsp</result>
 	</action>
 	
-	
+	<action name="addcomments" class="com.ycj.web.ScoresAction" method="addComments">
+		<result name="success">/moviedetail.jsp</result>
+		<result name="fail">/findbykey.jsp</result>
+	</action>
 </package>
  
 
