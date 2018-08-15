@@ -33,4 +33,5 @@ public class UserServiceImpl implements UserService {
     public List<Users> userInfo(String username){
     	return this.usersDao.findByUsername(username);
     }
+
 }
