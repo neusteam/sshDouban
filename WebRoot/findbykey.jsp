@@ -100,9 +100,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%
 	ArrayList<Movieinfo> list = (ArrayList)request.getAttribute("list");
     for(int i=0;i<list.size();i++){
- %>
+%>
     
-    		<div class="movie-info-small">
+    		 <div class="movie-info-small">
                 <div class="content">
                     <a href="./selectmovie?movieInfo.moviename=<%=list.get(i).getMoviename() %>"><h1><%=list.get(i).getMoviename() %> <%=list.get(i).getType() %></h1></a>
                     <img src="<%=list.get(i).getPicture() %>" alt="">
