@@ -1,4 +1,4 @@
-<%@page import="org.infinispan.util.SysPropertyActions"%>
+﻿<%@page import="org.infinispan.util.SysPropertyActions"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </a>
                 </div>
                 <div class="search-input-banner">
-                    <form action="">
+                    <form action="./findbykey">
                         <input name="keyWord" type="text" class="search-input" placeholder="搜索电影、电视剧、综艺、影人">
                         <input type="submit" class="search-input-submit" value="搜索">
                     </form>
@@ -143,7 +143,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form action="" style="float: left;">
                 <textarea name="content" id="comment-textarea" cols="30" rows="10"></textarea>
                 <input type="hidden" name="moviename" value="${moviename}">
+<<<<<<< HEAD
+                <input type="hidden" name="username" value="${username}">
+=======
                 <input type="hidden" name="usernmae" value="${username}">
+>>>>>>> 92ced7572584378a680bb49e0a24ebf2696611a2
                 <input type="submit" class="comment-button">
             </form>
             </div>

@@ -9,4 +9,5 @@ public int addUser(Users user);
 public int updateUser(Users user);
 public List<Users> findUser(String username);
 public List<Users> findAll();
+public List<Users> userInfo(String username);
 }

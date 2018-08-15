@@ -1,8 +1,11 @@
 package com.ycj.web;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -39,16 +42,21 @@ public class UserAction extends ActionSupport{
 		}
 	}
 	public String updateUser(){
-		System.out.println(user.getUsername());
+		//System.out.println(user.getUsername());
 		List <Users> list=this.userService.findUser(this.user.getUsername());
-		System.out.println(list.toString());
+		//System.out.println(list.toString());
 		if(list.size()!=0){
 			user.setId(list.get(0).getId());
 			user.setUsername(list.get(0).getUsername());
 			user.setPassword(list.get(0).getPassword());
 			user.setStatus(1);
-			user.setCity("广州");
-			System.out.println(user.toString());
+			user.setSex(user.getSex());
+			user.setPhonenumber(user.getPhonenumber());
+			user.setEmail(user.getEmail());
+			user.setCity(user.getCity());
+			user.setBirth(user.getBirth());
+			user.setUrl(list.get(0).getUrl());
+			//System.out.println(user.toString());
 			this.userService.updateUser(this.user);
 			return "fail";
 		}
@@ -58,11 +66,7 @@ public class UserAction extends ActionSupport{
 	}
 	
   public String userLogin(){
-	  System.out.println("GG");
-	System.out.println(this.user);
 	 List<Users> list=this.userService.findUser(this.user.getUsername());
-	 
-	  System.out.println("信息："+list.toString());
 	  if (list.size()>0){
 		  if(list.get(0).getPassword().equals(user.getPassword())&&1==list.get(0).getStatus()){
 			  HttpServletResponse response=ServletActionContext.getResponse();
@@ -101,6 +105,24 @@ public class UserAction extends ActionSupport{
 		  return "fail";
 	  }
   }
+   public String userInfo() throws IOException{
+	   HttpServletRequest request=ServletActionContext.getRequest();
+		 request.setCharacterEncoding("UTF-8");
+	   List<Users>list=this.userService.userInfo(this.user.getUsername());
+	   if(list.size()>0){
+		   ServletActionContext.getRequest().setAttribute("username",list.get(0).getUsername());
+		   ServletActionContext.getRequest().setAttribute("sex",list.get(0).getSex());
+		   ServletActionContext.getRequest().setAttribute("phonenumber",list.get(0).getPhonenumber());
+		   ServletActionContext.getRequest().setAttribute("email",list.get(0).getEmail());
+		   ServletActionContext.getRequest().setAttribute("city",list.get(0).getCity());
+		   ServletActionContext.getRequest().setAttribute("birth",list.get(0).getBirth());
+		   ServletActionContext.getRequest().setAttribute("url",list.get(0).getUrl());
+		   return SUCCESS;
+		  }
+	   else{
+		   return "fail";
+	   }
+   }
   public String findAllUser(){
 	  List<Users> list=this.userService.findAll();
 	  System.out.println("信息："+list.toString());
