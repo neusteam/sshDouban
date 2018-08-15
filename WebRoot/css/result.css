@@ -1,32 +1,58 @@
 .movie-info-banner
 {
-	width: 1160px;
-	margin: 0 auto;
-	overflow: hidden;
+    position: relative;
+
+    overflow: hidden;
+
+    width: 1160px;
+    min-height: 500px;
+    margin: 0 auto;
+    padding-bottom: 50px;
 }
 .movie-info-small
 {
-width: 900px;
-float: left;	
+    position: relative;
+    top: 0;
+    right: 0;
+
+    float: left;
+
+    width: 900px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+
+    cursor: pointer;
+    -webkit-transition: all .2s;
+         -o-transition: all .2s;
+            transition: all .2s;
+
+    border: 1px solid rgba(0,0,0,0);
+    border-bottom: 1px dashed rgba(0,0,0,.2);
+    box-shadow: 0px 0px 5px rgba(200,200,200,.5);
+}
+.movie-info-small:hover
+{
+    top: -3px;
+    right: -3px;
+
+    border: 1px solid rgba(0,0,0,.2);
 }
 .movie-info-small img
 {
-	width: 80px;
-	height: 118px;
-	float: left;
+    float: left;
+
+    width: 80px;
+    height: 118px;
 }
 .movie-info-small p
 {
-	width: 635px;
-	padding-left: 10px;
-	float: left;
-	height: 16px;
-	list-style: 16px;
-	margin: 2px 0;
-}
-.movie-info-small
-{
-	padding-bottom: 20px;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
-	margin-top: 20px;
+    float: left;
+
+    width: 635px;
+    height: 16px;
+    margin: 2px 0;
+    padding-left: 10px;
+
+    list-style: 16px;
 }

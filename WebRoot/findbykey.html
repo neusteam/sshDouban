@@ -1,3 +1,4 @@
+
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.ycj.entity.Movieinfo" %>
 <%
@@ -103,8 +104,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  %>
     
     		<div class="movie-info-small">
-                <div class="content">
-                    <a href="./selectmovie?movieInfo.moviename=<%=list.get(i).getMoviename() %>"><h1><%=list.get(i).getMoviename() %> <%=list.get(i).getType() %></h1></a>
+                 <a class="trigger-a" href="./selectmovie?movieInfo.moviename=<%=list.get(i).getMoviename() %>"><div class="content">
+                   <h1><%=list.get(i).getMoviename() %> <%=list.get(i).getType() %></h1>
                     <img src="<%=list.get(i).getPicture() %>" alt="">
                     <p>类型 ： <%=list.get(i).getType() %></p>
                     <p>日期 ： <%=list.get(i).getDate() %></p>
@@ -113,13 +114,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p>评分 ： <span class="score"><%=list.get(i).getAverage() %>分</span>
                     <p class="actor mockp">演员 ：<%=list.get(i).getActor() %></p>
                 </div>
+                </a>
             </div>
 
 <% 
     }
  %>
 
-
+                <div class="common-footer" style="float: left;">
+                    <span class="fleft span-footer">© 5002－8102 fakedouban.com, all rights reserved</span>
+                    <span class="fright span-footer"><a href="">关于豆瓣</a>
+                    <a href="">在豆瓣工作</a>
+                    <a href="">联系我们</a>
+                    <a href="">免责声明</a>
+                    <a href="">帮助中心</a>
+                    <a href="">开发者</a>
+                    <a href="">移动应用</a>
+                    <a href="">豆瓣广告</a></span>
+                </div>
  
 
 

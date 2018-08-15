@@ -52,23 +52,23 @@ window.addEventListener('load', () => {
         }
     })
     
-//    _prime(".index-content")[2].addEventListener("click", (e) => {
-//        if (e.target.nodeName == "IMG") {
-//            _prime(".alert-box")[0].setAttribute("style", "background-color:rgba(0, 0, 0, .5);z-index:1");
-//            _prime(".alert-content")[0].setAttribute("style", "opacity:1;z-index:1");
-//
-//            initModalContent(e.target.getAttribute("movieId"));
-//        }
-//    })
+   // _prime(".index-content")[2].addEventListener("click", (e) => {
+   //     if (e.target.nodeName == "IMG") {
+   //         _prime(".alert-box")[0].setAttribute("style", "background-color:rgba(0, 0, 0, .5);z-index:1");
+   //         _prime(".alert-content")[0].setAttribute("style", "opacity:1;z-index:1");
+
+   //         initModalContent(e.target.getAttribute("movieId"));
+   //     }
+   // })
 
 
 
-    _prime(".close-button")[0].addEventListener("click", () => {
-        _prime(".alert-box")[0].setAttribute("style", "background-color:rgba(0, 0, 0, 0);z-index:-1");
-        _prime(".alert-content")[0].setAttribute("style", "z-index:-1;opacity:0");
+   //  _prime(".close-button")[0].addEventListener("click", () => {
+   //      _prime(".alert-box")[0].setAttribute("style", "background-color:rgba(0, 0, 0, 0);z-index:-1");
+   //      _prime(".alert-content")[0].setAttribute("style", "z-index:-1;opacity:0");
 
-        _prime(".alert-content")[0].innerHTML = "";
-    })
+   //      _prime(".alert-content")[0].innerHTML = "";
+   //  })
 
 })
 
@@ -86,10 +86,6 @@ const getCookie = (c_name)=>
     } 
   }
 	return ""
-}
-
-const deleteCookie = (name)=> {
-	document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
 }
 
 const getDomElement = (type, className, text) => {
