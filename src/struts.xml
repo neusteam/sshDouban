@@ -15,6 +15,10 @@
 	      <result name="fail">/login.html</result>
 	</action>
 	
+	<action name="logout" class="com.ycj.web.UserAction" method="userLogout">
+	      <result name="success">/login.html</result>
+	</action>
+	
 	<action name="regist" class="com.ycj.web.UserAction" method="register">
 	      <result name="success">/index.html</result>
 	      <result name="fail">/register.html</result>
@@ -57,10 +61,17 @@
 		<result name="fail">/index.jsp</result>
 	</action>
 	
-	<action name="findbykey" class="com.ycj.web.MovieAction" method="findByKey">
-		<result name="success">/findbykey.jsp</result>
+	<action name="userinfo" class="com.ycj.web.UserAction" method="userInfo">
+		<result name="success">/persondetail.jsp</result>
 		<result name="fail">/index.html</result>
 	</action>
+	
+	<action name="findbykey" class="com.ycj.web.MovieAction" method="findByKey">
+		<result name="success">/findbykey.jsp</result>
+		<result name="fail">/findbykey.jsp</result>
+	</action>
+	
+	
 </package>
  
 

@@ -15,6 +15,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/itemdetails.css">
     <title>${moviename}</title>
+    <script src="./js/util.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -102,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p>地区 ： ${country}</p>
                     <p>语言 ： ${language}</p>
                     <p>评分 ： <span class="score">${score}分</span></p>
-                    <div class="director mockp">导演 ：<a href="selectmovie?movieInfo.moviename=${director}"> ${director}</a></div>
+                    <div class="director mockp">导演 ：<a href="selectactor?actorInfo.actorname=${director}"> ${director}</a></div>
                     <div class="actor mockp">演员 ：     
                     <s:iterator value="#request.ac" status="st">
                         <s:iterator value="#request.ac[#st.index]">
@@ -117,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             <nav>
                 <ul class="nav">
-                    <li><a href="#comment-textarea"><i class="iconfont">&#xeaf5;</i> 写评论</a></li>
+                    <li onclick="anchor()" style="cursor:pointer"><a><i class="iconfont">&#xeaf5;</i> 写评论</a></li>
                 </ul>
             </nav>
 
@@ -141,38 +143,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="label edit-label"><i class="iconfont" style="font-size: 16px;line-height: 16px;">&#xeabf;</i> 添加评论</div>
 
             <form action="" style="float: left;">
+            	<span class="score">评分</span><select id="score-select" name="score" style="width:80px;margin:0 0 20px 10px;">
+					<option value="1">1</option>
+            		<option value="2">2</option>
+            		<option value="3">3</option>
+            		<option value="4">4</option>
+            		<option value="5">5</option>
+            	</select>
                 <textarea name="content" id="comment-textarea" cols="30" rows="10"></textarea>
                 <input type="hidden" name="moviename" value="${moviename}">
-                <input type="hidden" name="username" value="${username}">
+                <input id="input-username" type="hidden" name="username" value="${username}">
                 <input type="submit" class="comment-button">
             </form>
             </div>
+                <div class="common-footer">
+                    <span class="fleft span-footer">© 5002－8102 fakedouban.com, all rights reserved</span>
+                    <span class="fright span-footer"><a href="">关于豆瓣</a>
+                    <a href="">在豆瓣工作</a>
+                    <a href="">联系我们</a>
+                    <a href="">免责声明</a>
+                    <a href="">帮助中心</a>
+                    <a href="">开发者</a>
+                    <a href="">移动应用</a>
+                    <a href="">豆瓣广告</a></span>
+                </div>
         </div>
     </div>
 
 
 
-
-<!--     电影名： ${moviename}
-    <br> 导演：
-    <a href="selectmovie?movieInfo.moviename=${director}">${director}</a>
-    <br> 主演：
-    <s:iterator value="#request.ac" status="st">
-        <s:iterator value="#request.ac[#st.index]">
-            <a href="selectactor?actorInfo.actorname=<s:property/>">
-                <s:property/>
-            </a>
-        </s:iterator>/
-    </s:iterator>
-    <br> 类型： ${type}
-    <br> 制片国家： ${country}
-    <br> 语言： ${language}
-    <br> 上映日期： ${date}
-    <br> 豆瓣评分： ${score}
-    <br> 剧情简介： ${describe}
-    <img alt="" src="${picture}"> -->
-
-
+<script src="./js/searchresult.js"></script>
+<script src="./js/itemdetails.js"></script>
 </body>
 
 </html>

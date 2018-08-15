@@ -1,4 +1,4 @@
-
+﻿
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page import="com.ycj.entity.Movieinfo" %>
 <%
@@ -16,6 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/result.css">
     <title>${moviename}</title>
+    <script src="./js/util.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -100,12 +102,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <%
 	ArrayList<Movieinfo> list = (ArrayList)request.getAttribute("list");
+	if(list != null && list.size()>0){
+	System.out.println(list.size());
     for(int i=0;i<list.size();i++){
- %>
+%>
     
-    		<div class="movie-info-small">
-                 <a class="trigger-a" href="./selectmovie?movieInfo.moviename=<%=list.get(i).getMoviename() %>"><div class="content">
-                   <h1><%=list.get(i).getMoviename() %> <%=list.get(i).getType() %></h1>
+    		 <div class="movie-info-small">
+                <div class="content">
+                    <a href="./selectmovie?movieInfo.moviename=<%=list.get(i).getMoviename() %>"><h1><%=list.get(i).getMoviename() %> <%=list.get(i).getType() %></h1></a>
                     <img src="<%=list.get(i).getPicture() %>" alt="">
                     <p>类型 ： <%=list.get(i).getType() %></p>
                     <p>日期 ： <%=list.get(i).getDate() %></p>
@@ -114,12 +118,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p>评分 ： <span class="score"><%=list.get(i).getAverage() %>分</span>
                     <p class="actor mockp">演员 ：<%=list.get(i).getActor() %></p>
                 </div>
-                </a>
             </div>
 
 <% 
-    }
- %>
+		}
+	}else{
+%>
+				<div style="min-height: 200px;"><h3>无搜索结果</h3></div>
+<%
+	}
+%>
 
                 <div class="common-footer" style="float: left;">
                     <span class="fleft span-footer">© 5002－8102 fakedouban.com, all rights reserved</span>
@@ -138,6 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
+    <script src="./js/searchresult.js"></script>	
 </body>
 
 </html>

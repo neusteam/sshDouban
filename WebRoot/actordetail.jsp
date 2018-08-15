@@ -12,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/itemdetails.css">
     <title>${moviename}</title>
+    <script src="./js/util.js"></script>
 </head>
 
 <body>

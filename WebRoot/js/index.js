@@ -1,13 +1,15 @@
 window.addEventListener('load', () => {
 	let movieData = "";
 	let username = getCookie("username");
-	if(username != ""){
+	if(username != null && username != ""){
+		let rootUl = _prime(".index-right-nav")[0];
+		
         //只改变文字
         rootUl.children[0].children[0].innerText = username;
         rootUl.children[0].setAttribute("href","./userinfo?user.username=" + username);
 
         //退出 （未完成）
-        rootUl.children[1].setAttribute("href","");
+        rootUl.children[1].setAttribute("href","./logout");
         rootUl.children[1].children[0].innerText = "退出";
 		
 	}
@@ -23,7 +25,7 @@ window.addEventListener('load', () => {
          }),
          success: function(str) {
         	 movieData = JSON.parse(str);
-        	 console.log(movieData)
+        	/* console.log(movieData)*/
              initIndexContentItems(movieData)
          },
          error: function() {
@@ -69,32 +71,6 @@ window.addEventListener('load', () => {
    //  })
 
 })
-
-const getCookie = (c_name)=>
-{
-	if (document.cookie.length>0)
-	{
-		c_start=document.cookie.indexOf(c_name + "=")
-    if (c_start!=-1)
-    { 
-    	c_start=c_start + c_name.length+1 
-    	c_end=document.cookie.indexOf(";",c_start)
-    if (c_end==-1) c_end=document.cookie.length
-    return unescape(document.cookie.substring(c_start,c_end))
-    } 
-  }
-	return ""
-}
-
-const getDomElement = (type, className, text) => {
-    let domNode = document.createElement(type);
-    let textNode = document.createTextNode(text);
-
-    domNode.appendChild(textNode);
-    domNode.className = className;
-
-    return domNode;
-}
 
 const initIndexContentItems = (movieData) => {
 
