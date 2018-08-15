@@ -6,13 +6,17 @@ window.addEventListener('load', () => {
 	submitUsername.setAttribute("value",username);
 
 	// setCommentDom(getCommentList(comment,comment.length));
-
+	
 	$.ajax({
         type: "post",
         url: "http://localhost:8080/ssh01/findcomments",
         dataType:"JSON",
         contentType:"application/json;charset=utf-8",
+        data: JSON.stringify({
+            moviename: _prime("#input-moviename")[0].getAttribute("value")
+       }),
         success: function(str) {
+        	console.log(str)
         	commentData = JSON.parse(str);
             setCommentDom(getCommentList(commentData,commentData.length));
         },
