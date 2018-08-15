@@ -2,15 +2,13 @@ window.addEventListener('load', () => {
 	let movieData = "";
 	let username = getCookie("username");
 	if(username != ""){
-		let rootUl = _prime(".index-right-nav")[0];
-		rootUl.innerHTML = username;
-		
-		let button = getDomElement("button","clear","退出");
-		rootUl.appendChild(button);
-		
-		_prime(".clear")[0].addEventListener("click",()=>{
-			delCookie("username");
-		})
+        //只改变文字
+        rootUl.children[0].children[0].innerText = username;
+        rootUl.children[0].setAttribute("href","./userinfo?user.username=" + username);
+
+        //退出 （未完成）
+        rootUl.children[1].setAttribute("href","");
+        rootUl.children[1].children[0].innerText = "退出";
 		
 	}
 	
